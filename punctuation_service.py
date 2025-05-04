@@ -1,11 +1,9 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from deepmultilingualpunctuation import PunctuationModel
-
-
-model = PunctuationModel(model="Qishuai/distilbert_punctuator_en-base")
+from deepmultilingualpunctuation import PunctuationModel  # No auth required
 
 app = FastAPI()
+model = PunctuationModel()  # Automatically uses oliverguhr/fullstop-punctuation-multilang-large
 
 class TextRequest(BaseModel):
     text: str
