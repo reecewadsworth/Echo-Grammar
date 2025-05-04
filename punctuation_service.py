@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from deepmultilingualpunctuation import PunctuationModel
 
+
 model = PunctuationModel(model="Qishuai/distilbert_punctuator_en-base")
 
 app = FastAPI()
