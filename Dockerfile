@@ -1,9 +1,6 @@
-FROM python:3.9-alpine  # 5x smaller than "slim"
+FROM python:3.9-slim
 
 WORKDIR /app
-
-# Install minimal dependencies
-RUN apk add --no-cache g++ make libffi-dev openssl-dev
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
