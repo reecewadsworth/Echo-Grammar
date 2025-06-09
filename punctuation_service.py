@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from deepmultilingualpunctuation import PunctuationModel  # No auth required
 
 app = FastAPI()
-model = PunctuationModel()  # Automatically uses oliverguhr/fullstop-punctuation-multilang-large
+model = PunctuationModel(model="oliverguhr/fullstop-punctuation-multilingual-sonar-base")
 
 class TextRequest(BaseModel):
     text: str
