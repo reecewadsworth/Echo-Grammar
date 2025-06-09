@@ -1,11 +1,15 @@
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from deepmultilingualpunctuation import PunctuationModel
+from fastapi.responses import PlainTextResponse
 
 app = FastAPI()
-app.mount("/", StaticFiles(directory="static"), name="static")  # Add this line
-model = PunctuationModel(model="oliverguhr/fullstop-punctuation-multilingual-sonar-base")
+model = PunctuationModel()
+
+# Loader.io verification endpoint (no static mounting needed)
+@app.get("/loaderio-8219b13a341557ee0f2794ceff9f16a2.txt")
+def loaderio_verification():
+    return PlainTextResponse("loaderio-8219b13a341557ee0f2794ceff9f16a2")
 
 class TextRequest(BaseModel):
     text: str
