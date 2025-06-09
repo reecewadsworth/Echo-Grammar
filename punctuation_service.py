@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from deepmultilingualpunctuation import PunctuationModel
 
 app = FastAPI()
-app.mount("/", StaticFiles(directory="static"), name="static")  # Add this line
+app.mount("/static", StaticFiles(directory="static"), name="static")
 model = PunctuationModel(model="oliverguhr/fullstop-punctuation-multilingual-sonar-base")
 
 class TextRequest(BaseModel):
