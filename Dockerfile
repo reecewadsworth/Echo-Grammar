@@ -5,6 +5,8 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt && mkdir -p static
 
+# Explicitly copy static directory contents
+COPY static/ ./static/
 COPY . .
 
 CMD ["/bin/sh", "-c", "uvicorn punctuation_service:app --host 0.0.0.0 --port $PORT"]
