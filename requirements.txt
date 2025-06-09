@@ -1,3 +1,6 @@
+# requirements.txt
 fastapi>=0.68.0
 uvicorn>=0.15.0
-deepmultilingualpunctuation>=1.0.0  # Official package for this model
+deepmultilingualpunctuation>=1.0.0
+httpx>=0.23.0
+python-multipart>=0.0.6
