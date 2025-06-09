@@ -1,0 +1,23 @@
+# docker-compose.yml (new file)
+version: '3.8'
+
+services:
+  whisper:
+    image: evilfreelancer/docker-whisper-server:latest
+    ports:
+      - "9000:9000"
+    environment:
+      WHISPER_MODEL: large-v3
+      WHISPER_MODEL_QUANTIZATION: q4_0
+      WHISPER_NO_TIMESTAMPS: "true"
+    volumes:
+      - ./whisper-models:/app/models
+
+  punctuation:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      PORT: 8000
+    depends_on:
+      - whisper
