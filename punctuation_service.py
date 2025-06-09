@@ -15,7 +15,7 @@ def punctuate_text(request: TextRequest):
     result = punctuation_model.restore_punctuation(request.text)
     return {"punctuated_text": result}
 
-@app.post("/whisper_transcribe")
+@app.post("/restore_profanities")
 async def whisper_transcribe(file: UploadFile = File(...)):
     """
     New endpoint: Accepts an audio file, sends it to your Whisper Docker server,
