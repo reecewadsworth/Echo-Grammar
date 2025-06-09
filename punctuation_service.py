@@ -4,7 +4,7 @@ from deepmultilingualpunctuation import PunctuationModel
 from fastapi.responses import PlainTextResponse
 
 app = FastAPI()
-model = PunctuationModel()
+model = PunctuationModel(model="oliverguhr/fullstop-punctuation-multilingual-sonar-base")
 
 # Loader.io verification endpoint (no static mounting needed)
 @app.get("/loaderio-8219b13a341557ee0f2794ceff9f16a2.txt")
