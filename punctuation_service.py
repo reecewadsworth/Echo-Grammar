@@ -1,8 +1,10 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
-from deepmultilingualpunctuation import PunctuationModel  # No auth required
+from deepmultilingualpunctuation import PunctuationModel
 
 app = FastAPI()
+app.mount("/", StaticFiles(directory="static"), name="static")  # Add this line
 model = PunctuationModel(model="oliverguhr/fullstop-punctuation-multilingual-sonar-base")
 
 class TextRequest(BaseModel):
