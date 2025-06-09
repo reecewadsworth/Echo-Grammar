@@ -18,7 +18,7 @@ def loaderio_verification():
     return PlainTextResponse("loaderio-8219b13a341557ee0f2794ceff9f16a2")
 
 # LRU cache for repeated punctuation requests
-@lru_cache(maxsize=1000)
+@lru_cache(maxsize=100000)
 def cached_punctuate(text: str):
     return model.restore_punctuation(text)
 
